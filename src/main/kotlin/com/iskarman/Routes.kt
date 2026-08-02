@@ -74,6 +74,14 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
             attributes["aria-hidden"] = "true"
         }
 
+        div(classes = "scroll-hint") {
+            id = "scroll-hint"
+            attributes["aria-hidden"] = "true"
+            unsafe {
+                +"""<svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>"""
+            }
+        }
+
         div(classes = "locale") {
             a(
                 href = "/locale/en?redirect=${encodeRedirect("/")}",
@@ -218,6 +226,7 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
         script(src = "/static/countdown.js") {}
         script(src = "/static/path-follow.js") {}
         script(src = "/static/lazy-video.js") {}
+        script(src = "/static/scroll-hint.js") {}
     }
 }
 

@@ -8,7 +8,7 @@ const targets = [
   join(root, "docs", "static"),
   join(root, "src", "main", "resources", "static"),
 ];
-const files = ["countdown.js", "path-follow.js", "lazy-video.js"];
+const files = ["countdown.js", "path-follow.js", "lazy-video.js", "scroll-hint.js"];
 
 for (const dir of targets) {
   mkdirSync(dir, { recursive: true });

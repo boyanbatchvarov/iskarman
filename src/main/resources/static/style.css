@@ -304,3 +304,46 @@ section a:hover {
     margin-top: 1rem;
     border-radius: 0.5rem;
 }
+
+.scroll-hint {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    z-index: 5;
+    transform: translateX(-50%);
+    opacity: 0.45;
+    pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.scroll-hint.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-hint svg {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: #94a3b8;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-hint-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(0.4rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-hint svg {
+        animation: none;
+    }
+}
