@@ -13,6 +13,8 @@ import kotlinx.html.details
 import kotlinx.html.div
 import kotlinx.html.h1
 import kotlinx.html.h2
+import kotlinx.html.h3
+import kotlinx.html.li
 import kotlinx.html.head
 import kotlinx.html.id
 import kotlinx.html.link
@@ -22,9 +24,12 @@ import kotlinx.html.nav
 import kotlinx.html.p
 import kotlinx.html.script
 import kotlinx.html.section
+import kotlinx.html.source
 import kotlinx.html.summary
 import kotlinx.html.title
+import kotlinx.html.ul
 import kotlinx.html.unsafe
+import kotlinx.html.video
 
 fun Route.landingRoutes() {
     get("/locale/{lang}") {
@@ -91,8 +96,10 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
             summary { +m("menu.label") }
             nav {
                 a(href = "#info") { +m("menu.info") }
+                a(href = "#track-rules") { +m("menu.trackRules") }
                 a(href = "#contacts") { +m("menu.contacts") }
                 a(href = "#media") { +m("menu.media") }
+                a(href = "#results") { +m("menu.results") }
             }
         }
 
@@ -119,7 +126,15 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
             section {
                 id = "info"
                 h2 { +m("section.info.title") }
-                p { +m("section.info.body") }
+                p { +m("section.info.body1") }
+                p { +m("section.info.body2") }
+                p {
+                    +"${m("section.info.facebook")} "
+                    externalLink(
+                        href = "https://www.facebook.com/events/1255118769960613",
+                        label = m("link.facebookEvent"),
+                    )
+                }
                 p(classes = "links") {
                     externalLink(
                         href = "https://www.windy.com/42.441/23.622?waves,42.439,23.622,16",
@@ -130,19 +145,76 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
                         href = "https://www.google.com/maps/dir//%D0%92%D0%B5%D1%82%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%BD%D0%B0+%D0%B1%D0%B0%D0%B7%D0%B0+%D0%98%D1%81%D0%BA%D1%8A%D1%80,+%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD,+1137+Pancharevo/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x14ab330f222d8221:0x9ea127539ef3ce95?sa=X&ved=1t:57443&ictx=111",
                         label = m("link.bulsailing"),
                     )
+                    +" · "
+                    externalLink(
+                        href = "https://www.facebook.com/events/1255118769960613",
+                        label = m("link.facebookEvent"),
+                    )
+                    +" · "
+                    externalLink(
+                        href = "https://earth.google.com/earth/d/1eNhSkv5ELvCFUorgYsnxWjl4ziWdRt9U?usp=sharing",
+                        label = m("link.googleEarth"),
+                    )
                 }
+            }
+            section {
+                id = "track-rules"
+                h2 { +m("section.trackRules.title") }
+                h3 { +m("section.track.title") }
+                p { +m("section.track.intro") }
+                p { +m("section.track.5km") }
+                p { +m("section.track.10km") }
+                h3 { +m("section.rules.title") }
+                ul {
+                    li { +m("section.rules.1") }
+                    li { +m("section.rules.2") }
+                    li { +m("section.rules.3") }
+                    li { +m("section.rules.4") }
+                    li { +m("section.rules.5") }
+                }
+                h3 { +m("section.baseCamp.title") }
+                p { +m("section.baseCamp.body") }
             }
             section {
                 id = "contacts"
                 h2 { +m("section.contacts.title") }
                 p {
-                    a(href = "mailto:hello@iskarman.com") { +"hello@iskarman.com" }
+                    externalLink(
+                        href = "https://www.facebook.com/boyan.batchvarov/",
+                        label = m("link.boyan"),
+                    )
+                }
+                p {
+                    externalLink(
+                        href = "https://www.facebook.com/profile.php?id=61592439134555",
+                        label = m("link.facebookPage"),
+                    )
+                }
+                p {
+                    externalLink(
+                        href = "https://www.facebook.com/events/1255118769960613",
+                        label = m("link.facebookEvent"),
+                    )
                 }
             }
             section {
                 id = "media"
                 h2 { +m("section.media.title") }
-                p { +m("section.media.body") }
+                video(classes = "media-video") {
+                    attributes["controls"] = ""
+                    attributes["playsinline"] = ""
+                    attributes["preload"] = "metadata"
+                    source {
+                        src = "/static/swim_video.mp4"
+                        type = "video/mp4"
+                    }
+                }
+            }
+            section {
+                id = "results"
+                h2 { +m("section.results.title") }
+                h3 { +m("section.results.2026") }
+                p { +m("section.results.2026.body") }
             }
         }
 

@@ -262,6 +262,28 @@ section p {
     margin: 0;
 }
 
+section p + p {
+    margin-top: 0.75rem;
+}
+
+section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+    color: #cbd5e1;
+}
+
+section ul {
+    text-align: left;
+    display: inline-block;
+    margin: 0.5rem auto 0;
+    padding-left: 1.25rem;
+}
+
+section ul li {
+    margin-bottom: 0.35rem;
+}
+
 section p.links {
     margin-top: 1rem;
 }
@@ -274,4 +296,11 @@ section a {
 
 section a:hover {
     color: #7dd3fc;
+}
+
+.media-video {
+    width: 100%;
+    max-width: 24rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
 }
