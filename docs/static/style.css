@@ -1,0 +1,277 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #e2e8f0;
+    background: #0f172a;
+}
+
+.path-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: #0f172a url("iskarman.png") no-repeat center center;
+    background-size: cover;
+    will-change: background-position, background-size;
+}
+
+.path-marker {
+    position: fixed;
+    z-index: 2;
+    width: 1.1rem;
+    height: 1.1rem;
+    pointer-events: none;
+    will-change: left, top, transform;
+}
+
+.path-marker::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fef08a, #facc15 55%, #ca8a04);
+    box-shadow:
+        0 0 0.5rem rgba(250, 204, 21, 0.95),
+        0 0 1.25rem rgba(250, 204, 21, 0.55),
+        0 0 2rem rgba(250, 204, 21, 0.25);
+}
+
+.path-marker::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.55rem;
+    height: 0.55rem;
+    margin: -0.275rem 0 0 -0.55rem;
+    border-radius: 50% 0 50% 50%;
+    background: rgba(254, 240, 138, 0.45);
+    transform: rotate(-45deg);
+    animation: path-wake 1.2s ease-out infinite;
+}
+
+@keyframes path-wake {
+    0% {
+        opacity: 0.7;
+        transform: rotate(-45deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(-45deg) scale(2.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .path-marker::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .path-bg {
+        will-change: auto;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 3;
+}
+
+.locale {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.locale-flag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.35rem;
+    text-decoration: none;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(4px);
+    opacity: 0.65;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.locale-flag:hover,
+.locale-flag.active {
+    opacity: 1;
+    border-color: rgba(56, 189, 248, 0.6);
+}
+
+.menu {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.menu summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    user-select: none;
+}
+
+.menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.menu nav {
+    display: flex;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-top: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    backdrop-filter: blur(4px);
+    overflow: hidden;
+}
+
+.menu nav a {
+    padding: 0.75rem 1rem;
+    color: #e2e8f0;
+    text-decoration: none;
+    border-top: 1px solid rgba(148, 163, 184, 0.15);
+    transition: background 0.15s ease;
+}
+
+.menu nav a:hover {
+    background: rgba(56, 189, 248, 0.15);
+    color: #7dd3fc;
+}
+
+.content {
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 0 1.5rem 3rem;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+section {
+    text-align: center;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: rgba(15, 23, 42, 0.55);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(4px);
+    scroll-margin-top: 1rem;
+}
+
+.hero-inner {
+    text-align: center;
+    padding: 1.5rem 2rem;
+    background: rgba(15, 23, 42, 0.55);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(4px);
+    width: max(100%, 36rem);
+    max-width: calc(100vw - 3rem);
+    margin-inline: auto;
+    transform: translateY(-25vh);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tagline {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    margin: 0.75rem 0 0;
+}
+
+.countdown {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.25rem 0.35rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.countdown-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.countdown-unit {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-right: 0.35rem;
+}
+
+.countdown-sep {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #64748b;
+    margin: 0 0.15rem;
+}
+
+section p {
+    margin: 0;
+}
+
+section p.links {
+    margin-top: 1rem;
+}
+
+section a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+section a:hover {
+    color: #7dd3fc;
+}

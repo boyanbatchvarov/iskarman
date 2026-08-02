@@ -1,0 +1,11 @@
+{
+  "name": "iskarman-frontend",
+  "private": true,
+  "scripts": {
+    "build": "tsc && node copy.mjs",
+    "watch": "tsc --watch --onSuccess 'node copy.mjs'"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}

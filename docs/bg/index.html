@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Искърмен</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="path-bg"></div>
+    <div class="path-marker" aria-hidden="true"></div>
+
+    <div class="locale">
+        <a href="../" class="locale-flag" aria-label="Английски">🇬🇧</a>
+        <a href="./" class="locale-flag active" aria-label="Български">🇧🇬</a>
+    </div>
+
+    <details class="menu">
+        <summary>Меню</summary>
+        <nav>
+            <a href="#info">Информация</a>
+            <a href="#contacts">Контакти</a>
+            <a href="#media">Медия</a>
+        </nav>
+    </details>
+
+    <main class="content">
+        <div class="hero">
+            <div class="hero-inner">
+                <h1>Искърмен</h1>
+                <div class="countdown" id="countdown"
+                     data-target="1789196400000"
+                     data-label-months="месеца"
+                     data-label-days="дни"
+                     data-label-hours="часа"
+                     data-label-minutes="минути"
+                     data-label-seconds="секунди">
+                    <span class="countdown-value">0</span>
+                    <span class="countdown-unit">месеца</span>
+                    <span class="countdown-sep">:</span>
+                    <span class="countdown-value">0</span>
+                    <span class="countdown-unit">дни</span>
+                    <span class="countdown-sep">:</span>
+                    <span class="countdown-value">0</span>
+                    <span class="countdown-unit">часа</span>
+                    <span class="countdown-sep">:</span>
+                    <span class="countdown-value">0</span>
+                    <span class="countdown-unit">минути</span>
+                    <span class="countdown-sep">:</span>
+                    <span class="countdown-value">0</span>
+                    <span class="countdown-unit">секунди</span>
+                </div>
+                <p class="tagline">10км плуване в открити води</p>
+            </div>
+        </div>
+
+        <section id="info">
+            <h2>Информация</h2>
+            <p>Добре дошли в Iskarman.</p>
+            <p class="links">
+                <a href="https://www.windy.com/42.441/23.622?waves,42.439,23.622,16" target="_blank" rel="noopener noreferrer">Windy (прогноза)</a>
+                ·
+                <a href="https://www.google.com/maps/dir//%D0%92%D0%B5%D1%82%D1%80%D0%BE%D1%85%D0%BE%D0%B4%D0%BD%D0%B0+%D0%B1%D0%B0%D0%B7%D0%B0+%D0%98%D1%81%D0%BA%D1%8A%D1%80,+%D0%A0%D0%B0%D0%B9%D0%BE%D0%BD,+1137+Pancharevo/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x14ab330f222d8221:0x9ea127539ef3ce95?sa=X&amp;ved=1t:57443&amp;ictx=111" target="_blank" rel="noopener noreferrer">Bulsailing</a>
+            </p>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакти</h2>
+            <p><a href="mailto:hello@iskarman.com">hello@iskarman.com</a></p>
+        </section>
+
+        <section id="media">
+            <h2>Медия</h2>
+            <p>Снимки, видеа и още скоро.</p>
+        </section>
+    </main>
+
+    <script src="../static/countdown.js"></script>
+    <script src="../static/path-follow.js"></script>
+</body>
+</html>
