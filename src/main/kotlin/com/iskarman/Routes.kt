@@ -199,6 +199,7 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
             section {
                 id = "media"
                 h2 { +m("section.media.title") }
+                p { +m("section.media.body") }
                 video(classes = "media-video") {
                     attributes["controls"] = ""
                     attributes["playsinline"] = ""
