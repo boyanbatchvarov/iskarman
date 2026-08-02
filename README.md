@@ -24,6 +24,20 @@ Open [http://localhost:8080](http://localhost:8080) (Bulgarian: [http://localhos
 
 ### Deploy to GitHub Pages
 
+```bash
+./deploy.sh --deploy
+```
+
+To commit local changes and deploy in one step:
+
+```bash
+./deploy.sh --commit "Your message" --deploy
+```
+
+Other options: `./deploy.sh` (build only), `./deploy.sh --dispatch` (redeploy current `main` via GitHub Actions without pushing).
+
+Initial setup:
+
 1. Push this repo to GitHub (public repo — Pages is free for public repositories).
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to **GitHub Actions**.
