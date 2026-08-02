@@ -24,7 +24,6 @@ import kotlinx.html.nav
 import kotlinx.html.p
 import kotlinx.html.script
 import kotlinx.html.section
-import kotlinx.html.source
 import kotlinx.html.summary
 import kotlinx.html.title
 import kotlinx.html.ul
@@ -203,11 +202,8 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
                 video(classes = "media-video") {
                     attributes["controls"] = ""
                     attributes["playsinline"] = ""
-                    attributes["preload"] = "metadata"
-                    source {
-                        src = "/static/swim_video.mp4"
-                        type = "video/mp4"
-                    }
+                    attributes["preload"] = "none"
+                    attributes["data-src"] = "/static/swim_video.mp4"
                 }
             }
             section {
@@ -220,6 +216,7 @@ private fun HTML.renderPage(lang: String, countdown: Countdown, targetEpochMs: L
 
         script(src = "/static/countdown.js") {}
         script(src = "/static/path-follow.js") {}
+        script(src = "/static/lazy-video.js") {}
     }
 }
 
