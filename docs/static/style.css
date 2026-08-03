@@ -233,10 +233,17 @@ h2 {
 .countdown {
     display: flex;
     flex-wrap: nowrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
     gap: 0.25rem 0.35rem;
     font-variant-numeric: tabular-nums;
+    width: 100%;
+}
+
+.countdown-segment {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
 }
 
 .countdown-value {
@@ -256,6 +263,42 @@ h2 {
     font-weight: 600;
     color: #64748b;
     margin: 0 0.15rem;
+}
+
+@media (max-width: 36rem) {
+    .hero-inner {
+        width: 100%;
+        padding: 1.25rem 1rem;
+    }
+
+    .countdown {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.35rem 0.15rem;
+    }
+
+    .countdown-segment {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.15rem;
+        min-width: 0;
+    }
+
+    .countdown-sep {
+        display: none;
+    }
+
+    .countdown-value {
+        font-size: 1.25rem;
+    }
+
+    .countdown-unit {
+        font-size: 0.625rem;
+        margin-right: 0;
+        text-align: center;
+        line-height: 1.15;
+        hyphens: auto;
+    }
 }
 
 section p {
