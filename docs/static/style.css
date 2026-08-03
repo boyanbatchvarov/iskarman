@@ -34,18 +34,6 @@ body {
     will-change: left, top, transform;
 }
 
-.path-marker::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #fef08a, #facc15 55%, #ca8a04);
-    box-shadow:
-        0 0 0.5rem rgba(250, 204, 21, 0.95),
-        0 0 1.25rem rgba(250, 204, 21, 0.55),
-        0 0 2rem rgba(250, 204, 21, 0.25);
-}
-
 .path-marker::after {
     content: "";
     position: absolute;
